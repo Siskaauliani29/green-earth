@@ -54,7 +54,7 @@ Aplikasi ini menjadi ruang kolaborasi terbuka bagi siapa pun yang peduli dengan 
 1. **Clone repository:**
 
 ```bash
-git clone https://github.com/username/green-earth.git
+git clone https://github.com/Siskaauliani29/green-earth.git
 cd green-earth
 
 
