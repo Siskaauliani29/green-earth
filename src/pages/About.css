@@ -1,0 +1,151 @@
+.about-wrapper {
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #2e4d35;
+    background: linear-gradient(to bottom, #e6f5ec, #ffffff);
+  }
+  
+  .about-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 60px;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  .about-hero .text {
+    flex: 1;
+  }
+  
+  .about-hero .text h1 {
+    font-size: 3rem;
+    color: #2e7d32;
+    margin-bottom: 15px;
+  }
+  
+  .about-hero .text p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+  
+  .about-hero .image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .about-hero .image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s;
+  }
+  
+  .about-hero .image img:hover {
+    transform: scale(1.05);
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    border-left: 8px solid #81c784;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease;
+  }
+  
+  
+  .card h3 {
+    color: #388e3c;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    line-height: 1.6;
+  }
+  
+  .about-team {
+    text-align: center;
+  }
+  
+  .about-team h2 {
+    font-size: 2.2rem;
+    color: #2e7d32;
+    margin-bottom: 30px;
+  }
+  
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .team-member {
+    background-color: #f1f8e9;
+    padding: 20px;
+    border-radius: 15px;
+    width: 220px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-8px);
+    background-color: #dcedc8;
+  }
+  
+  .team-member img {
+    border-radius: 50%;
+    width: 100px;
+    margin-bottom: 15px;
+    border: 3px solid #81c784;
+  }
+  
+  .team-member h4 {
+    margin: 10px 0 5px;
+    color: #33691e;
+  }
+  
+  .team-member p {
+    font-size: 0.95rem;
+    color: #4e674f;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(34, 139, 34, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-hero {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-hero .text h1 {
+      font-size: 2.5rem;
+    }
+  }
+  

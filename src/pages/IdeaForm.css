@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #e8f5e9;
+}
+
+.container {
+  display: flex;
+  max-width: 1000px;
+  margin: 50px auto;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.left {
+  background: #2e7d32;
+  color: white;
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.left .highlight {
+  color: #a5d6a7;
+}
+
+.left p {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.social-icons {
+  margin-top: auto;
+  display: flex;
+  gap: 16px;
+  font-size: 22px;
+}
+
+.right {
+  flex: 1;
+  padding: 40px;
+  background: #f9fbe7;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+form input,
+form textarea {
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #c5e1a5;
+  border-radius: 10px;
+  font-size: 14px;
+  background: #fff;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+form button {
+  margin-top: 16px;
+  background: #66bb6a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #43a047;
+}
+
+.list-ide {
+  margin-top: 30px;
+}
+
+.list-ide h3 {
+  color: #2e7d32;
+}
+
+.list-ide ul {
+  padding: 0;
+  list-style: none;
+}
+
+.list-ide li {
+  background: #f1f8e9;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
