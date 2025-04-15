@@ -1,50 +1,84 @@
 import React, { useState, useEffect } from 'react';
 import './Galeri.css';
+import { Heart, HeartOff } from 'lucide-react';
 
 const imageList = [
   {
-    url: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80',
+    url: '/kebun.jpeg', // Gambar pertama
     title: 'Kebun Organik',
     tag: 'Pertanian',
-    desc: 'Tanaman organik bebas pestisida yang ditanam secara alami.'
+    desc: 'Tanaman organik bebas pestisida.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80',
+    url: '/sawah.jpeg', // Gambar kedua
     title: 'Sawah Hijau',
     tag: 'Lahan',
     desc: 'Sawah luas subur dengan sistem irigasi tradisional.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1587049352840-59fdfc3ed716?auto=format&fit=crop&w=800&q=80',
+    url: '/hutan.jpeg', // Gambar ketiga
+    title: 'Hutan Tropis',
+    tag: 'Hutan',
+    desc: 'Hutan tropis lebat dengan keanekaragaman hayati.'
+  },
+  {
+    url: '/perkebunan.jpeg', // Gambar keempat
     title: 'Perkebunan Teh',
     tag: 'Perkebunan',
     desc: 'Daun teh segar di pegunungan sejuk dan subur.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1615473911633-5911a6e1b6e5?auto=format&fit=crop&w=800&q=80',
+    url: '/petani.jpeg', // Gambar kelima
     title: 'Petani dan Tanaman',
     tag: 'Petani',
     desc: 'Petani merawat tanaman dengan penuh dedikasi.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80',
-    title: 'Hutan Tropis',
-    tag: 'Hutan',
-    desc: 'Hutan tropis lebat dengan keanekaragaman hayati.'
+    url: '/daun_teh.jpeg', // Gambar keenam
+    title: 'Daun Teh Segar',
+    tag: 'Perkebunan',
+    desc: 'Daun teh segar yang siap dipetik.'
   },
+  {
+    url: '/sawah_subur.jpeg', // Gambar ketujuh
+    title: 'Sawah Subur',
+    tag: 'Pertanian',
+    desc: 'Sawah yang subur dengan hasil panen melimpah.'
+  },
+  {
+    url: '/hutan_hijau.jpeg', // Gambar kedelapan
+    title: 'Hutan Hijau',
+    tag: 'Alam',
+    desc: 'Keindahan hutan tropis yang menyegarkan.'
+  },
+  {
+    url: '/gunung_berkabut.jpeg', // Gambar kesembilan
+    title: 'Gunung Berkabut',
+    tag: 'Alam',
+    desc: 'Keindahan gunung yang diselimuti kabut pagi.'
+  },
+  {
+    url: '/petani_harvest.jpeg', // Gambar kesepuluh
+    title: 'Petani Menuai Hasil',
+    tag: 'Petani',
+    desc: 'Petani yang sedang memanen hasil pertanian.'
+  }
 ];
+
+
 
 function Galeri() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [liked, setLiked] = useState({});
+  const [filter, setFilter] = useState('Semua');
 
-  // Load liked state from localStorage
+  const tags = ['Semua', ...new Set(imageList.map(item => item.tag))];
+
   useEffect(() => {
     const storedLikes = JSON.parse(localStorage.getItem('likedImages')) || {};
     setLiked(storedLikes);
   }, []);
 
-  // Save liked state to localStorage
   useEffect(() => {
     localStorage.setItem('likedImages', JSON.stringify(liked));
   }, [liked]);
@@ -56,11 +90,28 @@ function Galeri() {
     }));
   };
 
+  const filteredImages = filter === 'Semua'
+    ? imageList
+    : imageList.filter(item => item.tag === filter);
+
   return (
     <div className="galeri-container">
       <h2 className="galeri-title">🌱 Galeri Hijau</h2>
+
+      <div className="filter-buttons">
+        {tags.map(tag => (
+          <button
+            key={tag}
+            className={`filter-btn ${filter === tag ? 'active' : ''}`}
+            onClick={() => setFilter(tag)}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+
       <div className="galeri-grid">
-        {imageList.map((item, index) => (
+        {filteredImages.map((item, index) => (
           <div className="galeri-item fade-in" key={index}>
             <div className="image-wrapper" onClick={() => setSelectedImage(item)}>
               <span className="tag">{item.tag}</span>
@@ -71,13 +122,12 @@ function Galeri() {
               </div>
             </div>
             <div className="like-button" onClick={() => toggleLike(index)}>
-              {liked[index] ? '❤️' : '🤍'}
+              {liked[index] ? <Heart fill="red" color="red" /> : <Heart />}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal for selected image */}
       {selectedImage && (
         <div className="modal" onClick={() => setSelectedImage(null)}>
           <span className="close">&times;</span>

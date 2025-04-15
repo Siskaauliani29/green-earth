@@ -1,151 +1,227 @@
 .about-wrapper {
-    padding: 40px 20px;
-    font-family: 'Segoe UI', sans-serif;
-    color: #2e4d35;
-    background: linear-gradient(to bottom, #e6f5ec, #ffffff);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #2e4d35;
+  background: linear-gradient(to bottom, #e6f5ec, #ffffff);
+  animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(to right, #e6f5ec, #ffffff);
   }
-  
+  50% {
+    background: linear-gradient(to right, #81c784, #ffffff);
+  }
+  100% {
+    background: linear-gradient(to right, #e6f5ec, #ffffff);
+  }
+}
+
+.about-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.about-hero .text {
+  flex: 1;
+}
+
+.about-hero .text h1 {
+  font-size: 3rem;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.about-hero .text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.about-hero .image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-hero .image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s;
+}
+
+.about-hero .image img:hover {
+  transform: scale(1.05);
+}
+
+.cta-button {
+  margin-top: 20px;
+}
+
+.cta-btn {
+  background-color: #388e3c;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #81c784;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+.about-join {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.join-button {
+  background-color: #388e3c;  /* Warna utama tombol */
+  color: #ffffff;  /* Warna teks putih */
+  padding: 15px 30px;  /* Padding lebih besar untuk tombol */
+  font-size: 1.2rem;  /* Ukuran font lebih besar agar lebih mencolok */
+  font-weight: bold;  /* Membuat teks lebih tebal */
+  border: none;  /* Menghilangkan border default */
+  border-radius: 30px;  /* Membuat sudut tombol lebih bulat */
+  cursor: pointer;  /* Mengubah kursor ketika hover */
+  transition: all 0.3s ease;  /* Efek transisi */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Menambahkan bayangan lembut */
+}
+
+.join-button:hover {
+  background-color: #81c784;  /* Ubah warna saat hover */
+  transform: scale(1.05);  /* Membesarkan tombol saat hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);  /* Bayangan lebih besar saat hover */
+}
+
+.join-button:active {
+  transform: scale(0.98);  /* Efek mengecil saat tombol ditekan */
+}
+
+.card {
+  background-color: #95C289;
+  border-left: 8px solid #81c784;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease;
+  color: #2e7d32;  /* Pastikan teks memiliki warna gelap */
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(34, 139, 34, 0.2);
+}
+
+.card h3 {
+  color: #388e3c;
+  margin-bottom: 10px;
+  font-size: 1.5rem;  /* Menambah ukuran font agar lebih mudah dibaca */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #4e674f;  /* Warna teks yang lebih gelap agar lebih kontras */
+}
+
+.about-team {
+  text-align: center;
+}
+
+.about-team h2 {
+  font-size: 2.2rem;
+  color: #2e7d32;
+  margin-bottom: 30px;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.team-member {
+  background-color: #f1f8e9;
+  padding: 20px;
+  border-radius: 15px;
+  width: 220px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-8px);
+  background-color: #dcedc8;
+}
+
+.team-member img {
+  border-radius: 50%;
+  width: 100px;
+  margin-bottom: 15px;
+  border: 3px solid #81c784;
+}
+
+.team-member h4 {
+  margin: 10px 0 5px;
+  color: #33691e;
+}
+
+.team-member p {
+  font-size: 0.95rem;
+  color: #4e674f;
+}
+
+.social-media {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.social-media a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #388e3c;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #81c784;
+}
+
+@media (max-width: 768px) {
   .about-hero {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    margin-bottom: 60px;
-    animation: fadeInUp 1s ease-in-out;
+    flex-direction: column;
+    text-align: center;
   }
-  
-  .about-hero .text {
-    flex: 1;
-  }
-  
+
   .about-hero .text h1 {
-    font-size: 3rem;
-    color: #2e7d32;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
   }
-  
-  .about-hero .text p {
-    font-size: 1.2rem;
-    line-height: 1.7;
-  }
-  
-  .about-hero .image {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .about-hero .image img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s;
-  }
-  
-  .about-hero .image img:hover {
-    transform: scale(1.05);
-  }
-  
-  .about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
-  }
-  
+
   .card {
-    background-color: #ffffff;
-    border-left: 8px solid #81c784;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
-    transition: transform 0.3s ease;
-  }
-  
-  
-  .card h3 {
-    color: #388e3c;
-    margin-bottom: 10px;
-  }
-  
-  .card p {
-    line-height: 1.6;
-  }
-  
-  .about-team {
-    text-align: center;
-  }
-  
-  .about-team h2 {
-    font-size: 2.2rem;
-    color: #2e7d32;
-    margin-bottom: 30px;
-  }
-  
-  .team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-  }
-  
-  .team-member {
-    background-color: #f1f8e9;
     padding: 20px;
-    border-radius: 15px;
-    width: 220px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-  }
-  
-  .team-member:hover {
-    transform: translateY(-8px);
-    background-color: #dcedc8;
-  }
-  
-  .team-member img {
-    border-radius: 50%;
-    width: 100px;
-    margin-bottom: 15px;
-    border: 3px solid #81c784;
-  }
-  
-  .team-member h4 {
-    margin: 10px 0 5px;
-    color: #33691e;
-  }
-  
-  .team-member p {
     font-size: 0.95rem;
-    color: #4e674f;
   }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .team-member {
+    width: 100%;
+    padding: 15px;
   }
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 32px rgba(34, 139, 34, 0.2);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .about-hero {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .about-hero .text h1 {
-      font-size: 2.5rem;
-    }
-  }
-  
+}

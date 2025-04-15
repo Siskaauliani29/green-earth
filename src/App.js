@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Panduan from './pages/Panduan';
 import Register from "./pages/Register";
 import Login from "./pages/Login"; // sesuaikan path folder kamu
+import Signup from './pages/Signup';
 import './App.css';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
             <li><Link to="/about">Tentang Kami</Link></li>
             <li><Link to="/ide">Masukan Ide</Link></li> {/* ← tambahkan ini */}
             <li><Link to="/galeri">Galeri Hijau</Link></li>
-            <li><Link to="/dashboard">Statistik</Link></li>
+
+            <li><Link to="/signup"></Link></li>
           </ul>
         </nav>
         <div className="content">
@@ -35,6 +37,7 @@ function App() {
             <Route path="/panduan" element={<Panduan />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </div>

@@ -1,102 +1,111 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ← Tambahkan ini
 import './Panduan.css';
-import { FaCheckCircle, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
-const tips = [
+const slides = [
   {
     title: "Kurangi Sampah Plastik",
-    desc: "Gunakan tas belanja kain dan botol minum yang bisa digunakan berulang kali untuk mengurangi penggunaan plastik.",
+    desc: "Gunakan tas kain, botol minum, dan wadah makanan reusable untuk bantu kurangi sampah plastik.",
+    image: "/plastik.jpg",
   },
   {
     title: "Tanam Pohon",
-    desc: "Ikut serta dalam kegiatan menanam pohon di sekitar lingkungan rumah untuk meningkatkan kualitas udara dan mencegah erosi.",
-  },
-  {
-    title: "Daur Ulang",
-    desc: "Pisahkan sampah organik dan anorganik, daur ulang bahan-bahan yang bisa digunakan kembali, seperti plastik, kertas, dan kaca.",
+    desc: "Menanam pohon bantu menjaga kualitas udara, menyerap karbon, dan mengurangi pemanasan global.",
+    image: "/tanampohon.png",
   },
   {
     title: "Hemat Energi",
-    desc: "Matikan lampu dan perangkat elektronik saat tidak digunakan. Gunakan peralatan listrik yang efisien energi untuk mengurangi konsumsi energi.",
+    desc: "Matikan lampu, cabut charger, dan gunakan peralatan hemat energi untuk selamatkan bumi.",
+    image: "/hematenergi.jpg",
   },
   {
-    title: "Hemat Air",
-    desc: "Gunakan air seperlunya saat mandi, mencuci, dan menyiram tanaman. Menghemat air sangat penting untuk menjaga kelestarian alam.",
+    title: "Gunakan Transportasi Ramah Lingkungan",
+    desc: "Berjalan kaki, naik sepeda, atau transportasi umum bantu kurangi polusi dan emisi karbon.",
+    image: "/transportasi.png",
   },
   {
-    title: "Jaga Keanekaragaman Hayati",
-    desc: "Lindungi habitat alami dan pertahankan keanekaragaman hayati untuk keberlanjutan ekosistem kita.",
+    title: "Daur Ulang Sampah",
+    desc: "Pisahkan sampah organik, plastik, dan kertas. Daur ulang kurangi limbah ke TPA.",
+    image: "/daurulang.jpg",
   },
   {
-    title: "Berkendara Ramah Lingkungan",
-    desc: "Gunakan transportasi umum, bersepeda, atau berjalan kaki untuk mengurangi emisi karbon yang berbahaya bagi lingkungan.",
+    title: "Kurangi Penggunaan Kertas",
+    desc: "Gunakan dokumen digital & catatan elektronik untuk menyelamatkan pohon dari penebangan.",
+    image: "/kertas.jpg",
+  },
+  {
+    title: "Lestarikan Air",
+    desc: "Tutup kran saat tidak digunakan, perbaiki kebocoran, dan hemat air untuk masa depan kita.",
+    image: "/hematair.jpg",
   },
 ];
 
-function Panduan() {
-  const [expandedIndex, setExpandedIndex] = useState(null);
-  const [checked, setChecked] = useState(Array(tips.length).fill(false));
+function PanduanSplash() {
+  const [current, setCurrent] = useState(0);
+  const navigate = useNavigate(); // ← Untuk redirect
 
-  const toggleAccordion = (index) => {
-    setExpandedIndex(index === expandedIndex ? null : index);
+  const nextSlide = () => {
+    if (current < slides.length - 1) setCurrent(current + 1);
   };
 
-  const toggleCheck = (index) => {
-    const newChecked = [...checked];
-    newChecked[index] = !newChecked[index];
-    setChecked(newChecked);
+  const prevSlide = () => {
+    if (current > 0) setCurrent(current - 1);
+  };
+
+  const skip = () => setCurrent(slides.length - 1);
+
+  const handleStart = () => {
+    navigate('/home'); // ← Ganti dengan rute sesuai kebutuhan kamu
   };
 
   return (
-    <div className="panduan-container">
-      <h2 className="panduan-title">🌿 Panduan Menjaga Lingkungan Hijau</h2>
-      
-      <div className="accordion-list">
-        {tips.map((tip, index) => (
-          <div key={index} className="accordion-item">
-            <div className="accordion-header" onClick={() => toggleAccordion(index)}>
-              <div className="checkbox-wrapper">
-                <input
-                  type="checkbox"
-                  checked={checked[index]}
-                  onChange={() => toggleCheck(index)}
-                  onClick={(e) => e.stopPropagation()}
-                />
-                <span className={`title ${checked[index] ? 'done' : ''}`}>
-                  {checked[index] && <FaCheckCircle className="check-icon" />}
-                  {tip.title}
-                </span>
-              </div>
-              <span className="icon">
-                {expandedIndex === index ? <FaChevronUp /> : <FaChevronDown />}
-              </span>
-            </div>
-            <div
-              className={`accordion-content ${expandedIndex === index ? 'expanded' : ''}`}
-            >
-              <p>{tip.desc}</p>
-            </div>
-          </div>
-        ))}
+    <div className="splash-container">
+      <h1 className="main-title">Panduan Menjaga Lingkungan Hijau</h1>
+
+      <div className="splash-card">
+        <img src={slides[current].image} alt="slide" className="splash-img" />
+        <h2 className="splash-title">{slides[current].title}</h2>
+        <p className="splash-desc">{slides[current].desc}</p>
+
+        <div className="splash-controls">
+  <button
+    className="back-btn"
+    onClick={prevSlide}
+    disabled={current === 0}
+  >
+    ← Back
+  </button>
+
+  <button className="skip-btn" onClick={skip}>Skip</button>
+
+  {current === slides.length - 1 ? (
+    <button className="start-btn" onClick={handleStart}>Yuk Mulai!</button>
+  ) : (
+    <button className="next-btn" onClick={nextSlide}>Next →</button>
+  )}
+</div>
+
+        <div className="indicator">
+          {slides.map((_, i) => (
+            <span key={i} className={i === current ? "dot active" : "dot"}></span>
+          ))}
+        </div>
       </div>
 
-      {/* Video Section */}
       <div className="video-section">
-        <h3>🎬 Video Edukasi: Menjaga Lingkungan Hijau</h3>
+        <h2 className="video-title">Video Edukasi: Menjaga Lingkungan</h2>
         <div className="video-wrapper">
           <iframe
-            width="100%"
-            height="400"
             src="https://www.youtube.com/embed/xxAypUu7QBA"
-            title="Menjaga Lingkungan Hijau"
+            title="Panduan Menjaga Lingkungan"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-          ></iframe>
+          />
         </div>
       </div>
     </div>
   );
 }
 
-export default Panduan;
+export default PanduanSplash;

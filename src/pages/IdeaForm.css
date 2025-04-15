@@ -13,45 +13,58 @@ body {
   margin: 50px auto;
   background: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   overflow: hidden;
+  animation: fadeSlide 1s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 .left {
-  background: #2e7d32;
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
   color: white;
   padding: 40px;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: fadeInLeft 1s ease-in-out;
 }
 
 .left h2 {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 20px;
+  line-height: 1.3;
 }
 
 .left .highlight {
-  color: #a5d6a7;
+  color: #c8e6c9;
+  font-weight: 600;
 }
 
 .left p {
   margin: 10px 0;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .social-icons {
   margin-top: auto;
   display: flex;
-  gap: 16px;
-  font-size: 22px;
+  gap: 18px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.social-icons i:hover {
+  color: #c8e6c9;
+  transform: scale(1.1);
+  transition: all 0.3s;
 }
 
 .right {
   flex: 1;
   padding: 40px;
   background: #f9fbe7;
+  animation: fadeInRight 1s ease-in-out;
 }
 
 form {
@@ -60,39 +73,49 @@ form {
 }
 
 form label {
-  margin-top: 10px;
+  margin-top: 14px;
   font-weight: 600;
+  color: #33691e;
 }
 
 form input,
 form textarea {
-  padding: 12px;
-  margin: 8px 0;
+  padding: 12px 16px;
+  margin: 10px 0;
   border: 1px solid #c5e1a5;
   border-radius: 10px;
   font-size: 14px;
   background: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #aed581;
 }
 
 form textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 100px;
 }
 
 form button {
-  margin-top: 16px;
+  margin-top: 20px;
   background: #66bb6a;
   color: white;
-  padding: 12px;
+  padding: 14px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 form button:hover {
   background: #43a047;
+  transform: translateY(-2px);
 }
 
 .list-ide {
@@ -101,6 +124,7 @@ form button:hover {
 
 .list-ide h3 {
   color: #2e7d32;
+  margin-bottom: 16px;
 }
 
 .list-ide ul {
@@ -110,7 +134,128 @@ form button:hover {
 
 .list-ide li {
   background: #f1f8e9;
-  padding: 10px;
-  margin-bottom: 8px;
-  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-left: 5px solid #81c784;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
 }
+
+.list-ide li:hover {
+  transform: translateX(5px);
+}
+
+/* Animations */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    padding: 30px;
+  }
+
+  .left {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+.animated-idea {
+  animation: slideInUp 0.5s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.delete-btn {
+  margin-left: 10px;
+  background: #ef5350;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  float: right;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: #d32f2f;
+}
+.export-btn {
+  background: linear-gradient(135deg, #388e3c, #66bb6a);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.export-btn:hover {
+  background: linear-gradient(135deg, #2e7d32, #43a047);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.export-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.export-btn i {
+  margin-right: 8px;
+}
+
+.export-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #aed581;
+}
+

@@ -1,179 +1,139 @@
-.panduan-container {
-    max-width: 900px; /* Maksimal lebar kontainer */
-    margin: 2rem auto; /* Margin otomatis untuk tengah */
-    background: linear-gradient(to bottom right, #f0fdf4, #c8f7c5);
-    padding: 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-  }
-  
-  .panduan-title {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #4CAF50;
-    margin-bottom: 1.5rem;
-  }
-  
-  .accordion-list {
-    margin-top: 1rem;
-  }
-  
-  .accordion-item {
-    background: #fff;
-    margin-bottom: 1rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: background-color 0.3s;
-  }
-  
-  .accordion-item:hover {
-    background-color: #e7f7e7;
-  }
-  
-  .accordion-header {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    cursor: pointer;
-    justify-content: space-between;
-    gap: 0.8rem;
-    transition: background-color 0.3s;
-  }
-  
-  .accordion-header:hover {
-    background-color: #f3f7f3;
-  }
-  
-  .checkbox-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .accordion-header input[type='checkbox'] {
-    transform: scale(1.2);
-    accent-color: #4CAF50;
-  }
-  
-  .accordion-header .title {
-    flex-grow: 1;
-    font-weight: 500;
-    font-size: 1.1rem;
-  }
-  
-  .accordion-header .title.done {
-    color: #4CAF50;
-    text-decoration: line-through;
-  }
-  
-  .accordion-header .check-icon {
-    margin-right: 0.4rem;
-    color: #4CAF50;
-  }
-  
-  .accordion-header .icon {
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
-  .accordion-content {
-    padding: 0 1rem 1rem 2.2rem;
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.6;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  
-  .accordion-content.expanded {
-    display: block;
-    opacity: 1;
-  }
-  
-  .video-section {
-    margin-top: 3rem;
-    text-align: center;
-  }
-  
-  .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  
-  /* Responsif untuk layar lebih kecil */
-  @media (max-width: 768px) {
-    .panduan-container {
-      padding: 1.5rem;
-      max-width: 100%; /* Agar kontainer tidak terlalu besar pada layar kecil */
-    }
-  
-    .panduan-title {
-      font-size: 1.8rem;
-    }
-  
-    .accordion-header .title {
-      font-size: 1rem; /* Mengurangi ukuran font untuk layar kecil */
-    }
-  
-    .video-wrapper {
-      height: 200px; /* Membuat video lebih kecil pada layar kecil */
-    }
-  
-    .accordion-item {
-      margin-bottom: 0.8rem;
-    }
-    .layout {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 2rem;
-        gap: 2rem;
-        flex-wrap: wrap;
-      }
-      
-      .left-section {
-        flex: 2;
-        min-width: 300px;
-      }
-      
-      .right-section {
-        flex: 1;
-        min-width: 300px;
-      }
-      
-      .video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
-        height: 0;
-        overflow: hidden;
-      }
-      
-      .video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-      
-      /* Style lainnya tetap dari file IdeaForm.css kamu */
-      
-  }
-  
+/* Panduan.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.splash-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f4f7fb;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #006400;
+}
+
+.splash-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.splash-img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border-radius: 1rem;
+}
+
+.splash-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.splash-desc {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.splash-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.back-btn,
+.skip-btn,
+.next-btn,
+.start-btn {
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.back-btn {
+  background: #ddd;
+  color: #333;
+}
+
+.skip-btn {
+  background: none;
+  color: #007BFF;
+}
+
+.next-btn {
+  background: #007BFF;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+}
+
+.start-btn {
+  background: #00C851;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,200,81,0.3);
+}
+
+
+.indicator {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #007BFF;
+}
+
+.video-section {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.video-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

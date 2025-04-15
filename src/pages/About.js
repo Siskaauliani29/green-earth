@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './About.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom'; // Impor Link untuk routing
 
 function About() {
   useEffect(() => {
@@ -51,16 +52,23 @@ function About() {
         <h2 data-aos="fade-up">👥 Tim Kami</h2>
         <div className="team-grid">
           <div className="team-member" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://i.pravatar.cc/120?img=12" alt="Siska Auliani" />
+          <img src="/siska.jpg"  alt="Siska Auliani" />
             <h4>Siska Auliani</h4>
             <p>Project Lead & Developer</p>
           </div>
           <div className="team-member" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://i.pravatar.cc/120?img=13" alt="Farah Nasywa" />
+            <img src="/kendal.jpg" alt="Farah Nasywa" />
             <h4>Farah Nasywa</h4>
             <p>Designer & Researcher</p>
           </div>
         </div>
+      </section>
+
+      {/* Tombol Bergabung dengan Kami */}
+      <section className="about-join">
+        <Link to="/signup">
+          <button className="join-button">Bergabung dengan Kami</button>
+        </Link>
       </section>
     </div>
   );

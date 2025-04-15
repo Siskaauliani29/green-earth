@@ -1,103 +1,106 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Import navigate
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const navigate = useNavigate(); // ✅ Gunakan navigate()
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = () => {
+    // Ambil data pengguna dari localStorage
     const userData = JSON.parse(localStorage.getItem("tanamin-user"));
-
     if (
       (userData && email === userData.email && password === userData.password) ||
-      (email === "admin@tanamin.com" && password === "tanamin123")
+      (email === "admin@green.com" && password === "green123")
     ) {
       setErrorMsg("");
-      navigate("/home"); // ✅ Redirect ke halaman beranda
+      navigate("/home");  // Arahkan ke halaman beranda setelah login sukses
     } else {
       setErrorMsg("Email atau password salah.");
     }
   };
 
-  const backgroundStyle = {
-    backgroundImage: "url('/assets/bg.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    height: "100vh",
-    position: "relative",
-    fontFamily: "'Segoe UI', sans-serif",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+  // Function untuk menangani login menggunakan sosial media
+  const handleSocialLogin = (platform) => {
+    switch (platform) {
+      case "google":
+        window.location.href = "https://accounts.google.com/signin";  // Arahkan ke Google login
+        break;
+      case "github":
+        window.location.href = "https://github.com/login";  // Arahkan ke GitHub login
+        break;
+      case "facebook":
+        window.location.href = "https://www.facebook.com/login";  // Arahkan ke Facebook login
+        break;
+      default:
+        break;
+    }
   };
 
   return (
-    <div className="login-container" style={backgroundStyle}>
-      <div className="login-overlay">
-        <div className="form-section">
-          <div className="brand">
-            <h1>🌱 Green Earth</h1>
-            <h2>Aplikasi Panduan Menanam untuk Pemula</h2>
-            <p>Selamat datang kembali, silakan login ke akun Anda</p>
-          </div>
-
+    <div className="login-page">
+      <div className="login-container">
+        <div className="login-box">
+          <h2>Login</h2>
           <div className="form-group">
             <label>Email</label>
             <input
               type="email"
-              placeholder="contoh@email.com"
+              placeholder="username@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
           <div className="form-group">
-  <label>Password</label>
-  <div className="password-input">
-    <input
-      type={showPassword ? "text" : "password"}
-      placeholder="********"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-    />
-    <span
-      className="eye-icon"
-      onClick={() => setShowPassword((prev) => !prev)}
-    >
-      {showPassword ? "🙈" : "👁️"}
-    </span>
-
+            <label>Password</label>
+            <div className="password-input">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? "🙈" : "👁️"}
+              </span>
             </div>
+            <a className="forgot-password" href="#">Forgot Password?</a>
           </div>
 
-          {errorMsg && <p style={{ color: "salmon" }}>{errorMsg}</p>}
+          {errorMsg && <p className="error">{errorMsg}</p>}
 
-          <div className="options">
-            <label>
-              <input type="checkbox" /> Ingat saya
-            </label>
-            <a href="#">Lupa password?</a>
+          <button className="login-btn" onClick={handleLogin}>Login</button>
+
+          <p className="continue-text">Or Continue With</p>
+          <div className="social-icons">
+            <img
+              src="/google.png"
+              alt="Google"
+              onClick={() => handleSocialLogin("google")}
+            />
+            <img
+              src="/github.png"
+              alt="GitHub"
+              onClick={() => handleSocialLogin("github")}
+            />
+            <img
+              src="/facebook.png"
+              alt="Facebook"
+              onClick={() => handleSocialLogin("facebook")}
+            />
           </div>
 
-          <div className="buttons">
-            <button className="login-btn" onClick={handleLogin}>
-              Login
-            </button>
-            <button className="signup-btn" onClick={() => navigate("/register")}>
-              Daftar
-            </button>
-          </div>
+          <p className="register-text">
+            Don’t have an account yet? <span onClick={() => navigate("/register")}>Register for free</span>
+          </p>
+        </div>
 
-          <p className="or-login">Atau login dengan</p>
-          <div className="social-login">
-            <a href="#">Facebook</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Google</a>
-          </div>
+        <div className="login-image">
+          <img src="/bebek.png" alt="Duck Character" />
         </div>
       </div>
     </div>

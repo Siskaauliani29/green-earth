@@ -1,12 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import './IdeaForm.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function IdeaForm() {
   const [nama, setNama] = useState('');
   const [ide, setIde] = useState('');
   const [listIde, setListIde] = useState([]);
 
-  // Load ide dari localStorage saat komponen pertama kali dimuat
+  const handleDelete = (index) => {
+    const updatedIdeas = [...listIde];
+    updatedIdeas.splice(index, 1);
+    setListIde(updatedIdeas);
+    localStorage.setItem('greenIdeas', JSON.stringify(updatedIdeas));
+    toast.info('Ide telah dihapus 🗑️');
+  };
+
+  const exportToTxt = () => {
+    const content = listIde.map((item, i) => `${i + 1}. ${item.nama}: ${item.ide}`).join('\n');
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'ide-hijau.txt';
+    link.click();
+    toast.success('Ide diexport sebagai TXT!');
+  };
+
+  const exportToCSV = () => {
+    const header = 'No,Nama,Ide\n';
+    const rows = listIde.map((item, i) => `${i + 1},"${item.nama}","${item.ide.replace(/"/g, '""')}"`).join('\n');
+    const csvContent = header + rows;
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'ide-hijau.csv';
+    link.click();
+    toast.success('Ide diexport sebagai CSV!');
+  };
+
   useEffect(() => {
     const savedIdeas = localStorage.getItem('greenIdeas');
     if (savedIdeas) {
@@ -19,9 +50,10 @@ function IdeaForm() {
     if (nama && ide) {
       const newIdeas = [...listIde, { nama, ide }];
       setListIde(newIdeas);
-      localStorage.setItem('greenIdeas', JSON.stringify(newIdeas)); // Simpan ke localStorage
+      localStorage.setItem('greenIdeas', JSON.stringify(newIdeas));
       setNama('');
       setIde('');
+      toast.success('Ide berhasil dikirim! 🌿');
     }
   };
 
@@ -63,11 +95,21 @@ function IdeaForm() {
             <h3>🌿 Daftar Ide Hijau</h3>
             <ul>
               {listIde.map((item, i) => (
-                <li key={i}><strong>{item.nama}</strong>: {item.ide}</li>
+                <li key={i} className="animated-idea">
+                  <strong>{item.nama}</strong>: {item.ide}
+                  <button className="delete-btn" onClick={() => handleDelete(i)}>Hapus</button>
+                </li>
               ))}
             </ul>
+
+            <div className="export-buttons">
+              <button className="export-btn" onClick={exportToTxt}>📄 Export TXT</button>
+              <button className="export-btn" onClick={exportToCSV}>📊 Export CSV</button>
+            </div>
           </div>
         )}
+
+        <ToastContainer position="bottom-right" />
       </div>
     </div>
   );

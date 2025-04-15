@@ -1,0 +1,124 @@
+.signup-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #f0f4f8, #e0f7fa);
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .signup-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2e7d32;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #388e3c;
+    margin-bottom: 10px;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #81c784;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    background-color: #f9fbe7;
+  }
+  
+  input:focus,
+  select:focus {
+    border-color: #388e3c;
+    outline: none;
+    box-shadow: 0 0 10px rgba(56, 142, 60, 0.4);
+  }
+  
+  button.submit-btn {
+    padding: 12px;
+    background-color: #388e3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button.submit-btn:hover {
+    background-color: #2e7d32;
+  }
+  
+  
+  .signup-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #1F8505;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    animation: fadeIn 1s ease-out;
+    transition: transform 0.3s ease;
+  }
+  .card h3 {
+    color: #fff; /* Mengubah warna teks di dalam card agar kontras */
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    line-height: 1.6;
+    color: #fff; /* Mengubah warna teks di dalam card agar kontras */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .signup-wrapper {
+      padding: 30px;
+    }
+  
+    .signup-title {
+      font-size: 2rem;
+    }
+  
+    .description {
+      font-size: 1rem;
+    }
+  }
+  
