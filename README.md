@@ -51,6 +51,9 @@ aksi nyata pelestarian lingkungan.
 
 ---
 
+Link Canva
+https://www.canva.com/design/DAGkrjii1oc/HhT-pHDd8qF8HR-J38wAag/edit?utm_content=DAGkrjii1oc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 ---
 
 ## 🛠️ Cara Instalasi & Menjalankan Aplikasi
@@ -60,6 +63,5 @@ aksi nyata pelestarian lingkungan.
 ```bash
 git clone https://github.com/Siskaauliani29/green-earth.git
 cd green-earth
-
 
 
