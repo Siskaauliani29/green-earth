@@ -15,7 +15,8 @@ Aplikasi ini menjadi ruang kolaborasi terbuka bagi siapa pun yang peduli dengan 
 
 ### 🏠 1. Beranda
 - Gambaran umum aplikasi
-- Visi dan ajakan untuk ikut berkontribusi
+- Beri ide hijau
+- Menampilkan kutipan inspiratif dan contoh aksi hijau seperti urban farming, kompos mandiri, dan pengurangan plastik
 
 ### 💡 2. Masukkan Ide / Pondok Inovasi
 - Tempat bagi pengguna 
