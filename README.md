@@ -11,25 +11,28 @@ Aplikasi ini menjadi ruang kolaborasi terbuka bagi siapa pun yang peduli dengan 
 
 ---
 
-## ✨ Fitur-Fitur Utama
+## ✨ Halaman
 
 ### 🏠 1. Beranda
 - Gambaran umum aplikasi
 - Visi dan ajakan untuk ikut berkontribusi
 
 ### 💡 2. Masukkan Ide / Pondok Inovasi
-- Pengguna dapat menulis ide terkait pertanian atau lingkungan
-- Fitur kategori (teknologi, sosial, ekologi)
-- Bisa dikomentari & diberi voting oleh pengguna lain
+- Tempat bagi pengguna 
+untuk berbagi ide kreatif seputar 
+pertanian dan lingkungan. 
 
-### 📈 3. Statistik
-- Jumlah ide yang masuk
-- Jumlah ide yang diimplementasikan
-- Kontribusi per kategori (grafik atau angka)
+### 📈 3. Panduan Menjaga Lingkungan & Video Edukasi
+- Fitur edukatif berupa slide interaktif 
+dan video yang memberikan tips praktis serta 
+pengetahuan seputar gaya hidup 
+ramah lingkungan.
 
 ### 📸 4. Galeri Hijau
-- Dokumentasi foto atau cerita proyek hijau dari komunitas
-- Bisa diunggah oleh pengguna
+- Ruang komunitas untuk mengunggah 
+foto atau cerita proyek hijau. Menjadi 
+dokumentasi inspiratif dari 
+aksi nyata pelestarian lingkungan.
 
 ### 🧩 5. Tentang Kami
 - Cerita di balik Green Earth
