@@ -1,6 +1,3 @@
-
----
-
 # 🌱 Green Earth
 
 **Green Earth** adalah platform gerakan hijau yang menggabungkan **teknologi**, **komunitas**, dan **ide kreatif** untuk menciptakan **pertanian dan perkebunan berkelanjutan**. Aplikasi ini menjadi ruang kolaborasi terbuka bagi siapa pun yang peduli dengan kelestarian lingkungan dan masa depan bumi.
@@ -101,6 +98,4 @@
      npm run dev
      ```
 
----
 
-Jika kamu ingin, aku juga bisa bantu buatkan README dalam format Markdown lengkap (siap pakai di GitHub) atau tambahan fitur lain seperti dark mode, kalkulator jejak karbon, atau halaman admin.
