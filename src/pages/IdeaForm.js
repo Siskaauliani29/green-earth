@@ -7,6 +7,30 @@ function IdeaForm() {
   const [nama, setNama] = useState('');
   const [ide, setIde] = useState('');
   const [listIde, setListIde] = useState([]);
+  const [role, setRole] = useState('user');
+
+  useEffect(() => {
+    const savedIdeas = localStorage.getItem('greenIdeas');
+    const userRole = localStorage.getItem('tanamin-isAdmin') === 'true' ? 'admin' : 'user';
+    if (savedIdeas) {
+      setListIde(JSON.parse(savedIdeas));
+    }
+    setRole(userRole);
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (nama.trim() && ide.trim()) {
+      const newIdeas = [...listIde, { nama, ide }];
+      setListIde(newIdeas);
+      localStorage.setItem('greenIdeas', JSON.stringify(newIdeas));
+      setNama('');
+      setIde('');
+      toast.success('Ide berhasil dikirim! 🌿');
+    } else {
+      toast.error('Harap isi nama dan ide.');
+    }
+  };
 
   const handleDelete = (index) => {
     const updatedIdeas = [...listIde];
@@ -23,7 +47,7 @@ function IdeaForm() {
     link.href = URL.createObjectURL(blob);
     link.download = 'ide-hijau.txt';
     link.click();
-    toast.success('Ide diexport sebagai TXT!');
+    toast.success('Ide diekspor sebagai TXT!');
   };
 
   const exportToCSV = () => {
@@ -35,32 +59,19 @@ function IdeaForm() {
     link.href = URL.createObjectURL(blob);
     link.download = 'ide-hijau.csv';
     link.click();
-    toast.success('Ide diexport sebagai CSV!');
+    toast.success('Ide diekspor sebagai CSV!');
   };
 
-  useEffect(() => {
-    const savedIdeas = localStorage.getItem('greenIdeas');
-    if (savedIdeas) {
-      setListIde(JSON.parse(savedIdeas));
-    }
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (nama && ide) {
-      const newIdeas = [...listIde, { nama, ide }];
-      setListIde(newIdeas);
-      localStorage.setItem('greenIdeas', JSON.stringify(newIdeas));
-      setNama('');
-      setIde('');
-      toast.success('Ide berhasil dikirim! 🌿');
-    }
-  };
+  const isAdmin = role === 'admin';
 
   return (
     <div className="container">
       <div className="left">
-        <h2>Let’s discuss<br />on something <span className="highlight">green</span><br />together</h2>
+        <h2>
+          Let’s discuss<br />
+          on something <span className="highlight">green</span><br />
+          together
+        </h2>
         <p>🌿 contact@greenideas.com</p>
         <p>📞 +62 812 3456 7890</p>
         <p>📍 Jl. Tanaman Hijau No. 123</p>
@@ -79,15 +90,21 @@ function IdeaForm() {
             value={nama}
             onChange={(e) => setNama(e.target.value)}
             required
+            disabled={isAdmin}
           />
+
           <label>Ide Pelestarian</label>
           <textarea
             placeholder="Tulis ide kamu..."
             value={ide}
             onChange={(e) => setIde(e.target.value)}
             required
+            disabled={isAdmin}
           ></textarea>
-          <button type="submit">🌱 Kirim Ide</button>
+
+          {!isAdmin && (
+            <button type="submit">🌱 Kirim Ide</button>
+          )}
         </form>
 
         {listIde.length > 0 && (
@@ -97,15 +114,28 @@ function IdeaForm() {
               {listIde.map((item, i) => (
                 <li key={i} className="animated-idea">
                   <strong>{item.nama}</strong>: {item.ide}
-                  <button className="delete-btn" onClick={() => handleDelete(i)}>Hapus</button>
+                  {isAdmin && (
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDelete(i)}
+                    >
+                      Hapus
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
 
-            <div className="export-buttons">
-              <button className="export-btn" onClick={exportToTxt}>📄 Export TXT</button>
-              <button className="export-btn" onClick={exportToCSV}>📊 Export CSV</button>
-            </div>
+            {isAdmin && (
+              <div className="export-buttons">
+                <button className="export-btn" onClick={exportToTxt}>
+                  📄 Export TXT
+                </button>
+                <button className="export-btn" onClick={exportToCSV}>
+                  📊 Export CSV
+                </button>
+              </div>
+            )}
           </div>
         )}
 

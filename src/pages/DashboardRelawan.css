@@ -1,0 +1,141 @@
+.dashboard-relawan {
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.info-cards {
+  display: flex;
+  justify-content: center; /* Pusatkan info cards */
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  min-width: 150px;
+}
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Pusatkan kegiatan */
+  gap: 1rem;
+}
+
+.activity-list li {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.activity-list button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.activity-list button:hover {
+  background-color: #45a049;
+}
+
+.quote {
+  font-style: italic;
+  margin-top: 2rem;
+  color: #666;
+  text-align: center;
+}
+
+.nav-buttons {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.nav-buttons button {
+  margin: 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.nav-buttons button:hover {
+  background-color: #1976d2;
+}
+.dashboard-relawan {
+  padding: 20px;
+  font-family: sans-serif;
+  max-width: 600px;
+  margin: auto;
+}
+
+.info-cards {
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.form-tambah-kegiatan {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.form-tambah-kegiatan input,
+.form-tambah-kegiatan select,
+.form-tambah-kegiatan button {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+}
+
+.activity-list li {
+  background: #e8f5e9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.activity-list button {
+  margin-top: 5px;
+  padding: 6px 10px;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quote {
+  margin-top: 30px;
+  font-style: italic;
+  color: #555;
+  text-align: center;
+}

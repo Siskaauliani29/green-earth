@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Signup.css';
 
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +21,13 @@ function Signup() {
       alert("Semua field harus diisi!");
       return;
     }
-    alert(`Pendaftaran sukses! Anda terdaftar sebagai ${formData.role}.`);
+
+    // Simpan role dan data lain ke localStorage (jika diperlukan)
+    localStorage.setItem("signupRole", formData.role);
+    localStorage.setItem("signupName", formData.name);
+
+    // Arahkan ke halaman Terima Kasih
+    navigate('/terima-kasih');
   };
 
   return (

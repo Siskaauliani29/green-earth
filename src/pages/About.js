@@ -29,22 +29,22 @@ function About() {
 
       <section className="about-grid">
         <div className="card" data-aos="fade-up" data-aos-delay="100">
-          <h3>🎯 Visi</h3>
-          <p>
+          <h4>🎯 Visi</h4>
+          <p1>
             Menjadi wadah utama ide-ide hijau dari masyarakat demi kelestarian lingkungan dan teknologi ramah alam.
-          </p>
+          </p1>
         </div>
         <div className="card" data-aos="fade-up" data-aos-delay="200">
-          <h3>🚀 Misi</h3>
-          <p>
+          <h4>🚀 Misi</h4>
+          <p2>
             Mendorong kolaborasi lintas sektor dalam menciptakan solusi lingkungan, mulai dari edukasi hingga implementasi nyata.
-          </p>
+          </p2>
         </div>
         <div className="card" data-aos="fade-up" data-aos-delay="300">
-          <h3>🤝 Komunitas</h3>
-          <p>
+          <h4>🤝 Komunitas</h4>
+          <p3>
             Didukung oleh relawan, inovator, dan individu yang peduli akan keberlanjutan ekosistem bumi.
-          </p>
+          </p3>
         </div>
       </section>
 

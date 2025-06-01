@@ -119,11 +119,14 @@ body {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
+.card p1, .card p2, .card p3 {
+  color: black;
+}
 
 .card p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #444;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* Animasi */

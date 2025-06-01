@@ -22,6 +22,7 @@
 
 ### 💡 2. Masukkan Ide / Pondok Inovasi
 
+HEAD
 * Pengguna berbagi ide kreatif seputar lingkungan dan pertanian
 * Ide dapat diekspor dalam format **CSV** atau **TXT**
 
@@ -29,6 +30,8 @@
 
 * Slide interaktif dan video edukatif
 * Tips gaya hidup ramah lingkungan
+
+0788dc4 (Update fitur signup dan backend)
 
 ### 📸 4. Galeri Hijau
 

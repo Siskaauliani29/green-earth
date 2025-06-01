@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"; // pakai CSS login yang sama
+import "./Login.css";
 
 function Register() {
   const navigate = useNavigate();
@@ -8,12 +8,38 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = () => {
-    // Simpan data pengguna ke localStorage
-    const userData = { nama, email, password };
-    localStorage.setItem("tanamin-user", JSON.stringify(userData));
-    console.log("Register:", { nama, email, password });
-    navigate("/login");
+  const handleRegister = async () => {
+    if (!nama || !email || !password) {
+      alert("Semua data harus diisi");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5050/register", {
+
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: nama,
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Pendaftaran berhasil!");
+        navigate("/login");
+      } else {
+        alert(`Gagal: ${data.message}`);
+      }
+    } catch (error) {
+      alert("Terjadi kesalahan koneksi ke server");
+      console.error("Error:", error);
+    }
   };
 
   return (

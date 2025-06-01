@@ -16,6 +16,16 @@ body, html {
   justify-content: center;
   align-items: center;
 }
+.forgot-password {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 0;
+}
 
 .login-container {
   width: 90%;

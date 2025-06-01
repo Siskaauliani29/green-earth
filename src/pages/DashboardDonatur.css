@@ -1,0 +1,166 @@
+.dashboard-donatur {
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.intro-text {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.bank-card {
+  width: 320px;
+  height: 200px;
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: none; /* hilangkan bayangan putih */
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  background-color: transparent; /* tidak ada background putih */
+  background-size: cover;
+  background-position: center;
+  margin: 1rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bank-logo {
+  height: 30px;
+  margin-left: 20px;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; /* Tambahkan jarak atas jika perlu */
+}
+
+.card-footer div {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-footer small {
+  font-size: 12px;
+  color: white; /* Warna untuk teks 'Card Holder' dan 'Expires' */
+  margin-bottom: 25px; /* Menambah jarak antara 'Card Holder' dan nama */
+}
+
+.card-name {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: -20px; /* Menaikkan nama pemegang kartu */
+  color:whitesmoke; /* Sesuaikan warna nama */
+
+}
+
+.card-expiry {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px; /* Menggunakan margin negatif untuk menaikkan */
+  color:white;
+  /* Atau menggunakan position jika ingin lebih fleksibel */
+  position: relative;
+  top: -30px; /* Menaikkan elemen lebih fleksibel */
+}
+
+.visa-logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.card-amount {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.card-number {
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.card-name, .card-expiry {
+  font-weight: 600;
+  
+}
+
+/* BSI CARD STYLE */
+.bsi-card {
+background-image: url('../../public/assets/bsi-background.png');
+  background-size: cover;
+}
+
+/* BANK ACEH STYLE */
+.bank-aceh-card {
+background-image: url('../../public/assets/bankaceh-background.png');
+}
+
+.copy-text {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #EBECEE; /* Background biru */
+  color:#69AB3D; /* Warna teks putih */
+  border-radius: 5px; /* Sudut melengkung */
+  cursor: pointer;
+  font-size: 14px;
+}
+
+@keyframes fadeInCard {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bank-card {
+  width: 320px;
+  height: 200px;
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: none;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  margin: 1rem;
+  animation: fadeInCard 0.6s ease-out; /* Apply animation here */
+}
+
+@keyframes zoomInCard {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.bank-card {
+  animation: zoomInCard 0.5s ease-out; /* Zoom-in effect */
+}

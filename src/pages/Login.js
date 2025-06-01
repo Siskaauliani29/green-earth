@@ -10,30 +10,37 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Ambil data pengguna dari localStorage
     const userData = JSON.parse(localStorage.getItem("tanamin-user"));
-    if (
-      (userData && email === userData.email && password === userData.password) ||
-      (email === "admin@green.com" && password === "green123")
-    ) {
+
+    if (email === "admin@green.com" && password === "green123") {
+      // Login sebagai admin
       setErrorMsg("");
-      navigate("/home");  // Arahkan ke halaman beranda setelah login sukses
+      localStorage.setItem("tanamin-isAdmin", true);
+      navigate("/home");
+    } else if (
+      userData &&
+      email === userData.email &&
+      password === userData.password
+    ) {
+      // Login sebagai user biasa
+      setErrorMsg("");
+      localStorage.setItem("tanamin-isAdmin", false);
+      navigate("/home");
     } else {
       setErrorMsg("Email atau password salah.");
     }
   };
 
-  // Function untuk menangani login menggunakan sosial media
   const handleSocialLogin = (platform) => {
     switch (platform) {
       case "google":
-        window.location.href = "https://accounts.google.com/signin";  // Arahkan ke Google login
+        window.location.href = "https://accounts.google.com/signin";
         break;
       case "github":
-        window.location.href = "https://github.com/login";  // Arahkan ke GitHub login
+        window.location.href = "https://github.com/login";
         break;
       case "facebook":
-        window.location.href = "https://www.facebook.com/login";  // Arahkan ke Facebook login
+        window.location.href = "https://www.facebook.com/login";
         break;
       default:
         break;
@@ -68,12 +75,19 @@ const Login = () => {
                 {showPassword ? "🙈" : "👁️"}
               </span>
             </div>
-            <a className="forgot-password" href="#">Forgot Password?</a>
+            <button
+              className="forgot-password"
+              onClick={() => alert("Fitur lupa password belum tersedia.")}
+            >
+              Forgot Password?
+            </button>
           </div>
 
           {errorMsg && <p className="error">{errorMsg}</p>}
 
-          <button className="login-btn" onClick={handleLogin}>Login</button>
+          <button className="login-btn" onClick={handleLogin}>
+            Login
+          </button>
 
           <p className="continue-text">Or Continue With</p>
           <div className="social-icons">
@@ -95,7 +109,8 @@ const Login = () => {
           </div>
 
           <p className="register-text">
-            Don’t have an account yet? <span onClick={() => navigate("/register")}>Register for free</span>
+            Don’t have an account yet?{" "}
+            <span onClick={() => navigate("/register")}>Register for free</span>
           </p>
         </div>
 

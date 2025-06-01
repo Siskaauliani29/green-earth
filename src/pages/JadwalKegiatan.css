@@ -1,0 +1,58 @@
+/* JadwalKegiatan.css */
+
+.jadwal-container {
+  max-width: 650px;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.jadwal-container h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #2c3e50;
+}
+
+.jadwal-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+}
+
+.jadwal-container li {
+  background-color: #ffffff;
+  margin: 12px 0;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #34495e;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.jadwal-container li:hover {
+  transform: translateY(-3px);
+  background-color: #f0f9ff;
+}
+
+.jadwal-container button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.jadwal-container button:hover {
+  background-color: #357ab8;
+}
