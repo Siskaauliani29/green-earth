@@ -7,7 +7,7 @@
 ## 🚀 Demo / Preview
 
 🎥 [Live Demo UTS](https://youtu.be/GXTIOyZdkNU?si=8nMVr9HQk-m-fF6z)
-🎥 [Live Demo UAS](https://youtu.be/4BbQsLjhwmk)
+🎥 [Live Demo UAS](https://youtu.be/jNODCxFm_xE)
 📄 [Slide](https://www.canva.com/design/DAGkrjii1oc/HhT-pHDd8qF8HR-J38wAag/edit?utm_content=DAGkrjii1oc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ---
